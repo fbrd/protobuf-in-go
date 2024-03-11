@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/duration.proto";
+
+package ozon.bx.example.api.bar;
+
+option go_package = "gitlab.ozon.ru/bx/example-api/pkg/bar";
+option csharp_namespace = "Ozon.Bx.ExampleApi.Bar";
+option java_package = "ru.ozon.bx.exampleapi.bar";
+option java_multiple_files = true;
+
+// Имя человека
+message PersonName {
+  // собственно имя
+  string first_name = 1;
+  // фамилия
+  string last_name = 2;
+  // отчество (если есть)
+  google.protobuf.StringValue second_name = 3;
+}
+
+message RaceResults {
+  PersonName person = 1;
+  int32 number = 2;
+  google.protobuf.Duration result = 3;
+}
+

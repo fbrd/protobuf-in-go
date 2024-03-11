@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package ozon.bx.example.api.bar;
+
+option go_package = "gitlab.ozon.ru/bx/example-api/pkg/bar";
+option csharp_namespace = "Ozon.Bx.ExampleApi.Bar";
+option java_package = "ru.ozon.bx.exampleapi.bar";
+option java_multiple_files = true;
+
+// Статус задачи
+// Style Guide: наименование Enum пишем в PascalCase
+// Style Guide: Значения Enum пишутся в верхнем регистре через прочерк
+// Style Guide: CAPITALS_WITH_UNDERSCORES
+enum TicketStatus {
+  // неопределенный статус
+  // Style Guide: нулевое значение должно иметь суффикс `_UNSPECIFIED`
+  TICKET_STATUS_UNSPECIFIED = 0;
+  // беклог
+  BACKLOG =  1;
+  // в работе
+  WORK_IN_PROGRESS = 2;
+  // сделана
+  DONE = 3;
+  // отменена
+  CANCELED= 4;
+}
+

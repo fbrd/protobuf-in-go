@@ -1,0 +1,30 @@
+// Style Guide: имя файла в snake_case.proto
+
+syntax = "proto3";
+
+// Style Guide: имя пакета в нижнем регистре
+package ozon.bx.example.api.bar;
+
+option go_package = "gitlab.ozon.ru/bx/example-api/pkg/bar";
+option csharp_namespace = "Ozon.Bx.ExampleApi.Bar";
+option java_package = "ru.ozon.bx.exampleapi.bar";
+option java_multiple_files = true;
+
+// Сущность
+message Entity {
+  // идентификатор сущности
+  uint32 id = 1;
+  // алиас сущности
+  string alias = 2;
+  // название сущности
+  string name = 3;  // признак наличия человеко-понятного URL
+  // Style Guide: имя поля пишем в snake_case
+  bool is_sef = 5;
+}
+
+
+
+
+
+
+

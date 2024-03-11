@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+import "entity.proto";
+
+package ozon.bx.example.api.bar;
+
+option go_package = "gitlab.ozon.ru/bx/example-api/pkg/bar";
+option csharp_namespace = "Ozon.Bx.ExampleApi.Bar";
+option java_package = "ru.ozon.bx.exampleapi.bar";
+option java_multiple_files = true;
+
+
+// Упорядоченный список сущностей
+// Style Guide: названия message пишем в PascalCase
+message EntityList {
+  // 0 или более элементов
+  // порядок будет сохранен
+  // Style Guide: имя поля должно быть множественным
+  // Entity импортирован из другого proto
+  repeated Entity entities = 1;
+}
+
+// Set of entities
+message EntityMap {
+  // 0 или более элементов
+  // порядок не гарантируется
+  // ключи - любые типы, кроме чисел с плавающей точкой,
+  // байтов, перечислений
+  // ключи не могут повторяться
+  // значения - любой message либо скаляр
+  // не могут быть значениями непосредственно map и repeated
+  // Style Guide: имя поля должно быть множественным числом
+  // Entity импортирован из другого proto
+  map<int64, Entity> entities = 1;
+ }
+
+ message MapOfMap {
+  map<int64,EntityMap> my_map = 1;
+ }
+
+// Response
+message Response {
+  EntityList list = 1;
+  string title = 2;
+  // вложенный message
+  // имеет свою нумерацию полей
+  // область видимости не ограничена:
+  // можно использовать, как Response.DetailInfo
+  message DetailInfo {
+    int32 code = 1;
+    string status = 2;
+  }
+  DetailInfo detail_info = 3;
+}

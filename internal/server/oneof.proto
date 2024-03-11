@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package ozon.bx.example.api.bar;
+
+option go_package = "gitlab.ozon.ru/bx/example-api/pkg/bar";
+option csharp_namespace = "Ozon.Bx.ExampleApi.Bar";
+option java_package = "ru.ozon.bx.exampleapi.bar";
+option java_multiple_files = true;
+
+message Metadata {
+  string key = 1;
+  // value будет содержать не более одного поля
+  oneof value {
+    int32 int_value = 2;
+    string string_value = 3;
+  }
+}

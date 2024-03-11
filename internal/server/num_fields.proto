@@ -1,0 +1,39 @@
+// Style Guide: имя файла в snake_case.proto
+
+syntax = "proto3";
+
+// Style Guide: имя пакета в нижнем регистре
+package ozon.bx.example.api.bar;
+
+option go_package = "gitlab.ozon.ru/bx/example-api/pkg/bar";
+option csharp_namespace = "Ozon.Bx.ExampleApi.Bar";
+option java_package = "ru.ozon.bx.exampleapi.bar";
+option java_multiple_files = true;
+
+// Номера полей
+message Nums {
+  // номера полей 1-15 занимают 1 байт
+  uint32 id_1 = 1;
+  uint32 id_15 = 15;
+  // номера полей 16-2047 занимают 2 байта
+  uint32 id_16 = 16;
+  uint32 id_2047 = 2047;
+  // номера полей 2048-262143 занимают 3 байта
+  uint32 id_2048 = 2048;
+  // номера полей 19000-19999
+  // зарезервированы для protobuf
+  uint32 id_262143 = 262143;
+  // 4 байта
+  uint32 id_262144 = 262144;
+  uint32 id_33554431 = 33554431;
+  // 5 байт
+  uint32 id_33554432 = 33554432;
+  uint32 id_536870911 = 536870911;
+}
+
+
+
+
+
+
+
